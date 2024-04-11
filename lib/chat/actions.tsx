@@ -63,7 +63,7 @@ async function describeImage(imageBase64: string) {
     try {
       let text = ''
 
-      // attachment as video for demo purposes,
+      // attachment as video for demo purposes
       // add your implementation here to support
       // video as input for prompts.
       if (imageBase64 === '') {
