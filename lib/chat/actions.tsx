@@ -85,9 +85,10 @@ async function describeImage(imageBase64: string) {
       `
       } else {
         const imageData = imageBase64.split(',')[1]
+        console.log(imageData)
 
-        const model = genAI.getGenerativeModel({ model: 'gemini-pro-vision' })
-        const prompt = 'List the books in this image.'
+        const model = openai.chat('gpt-4-turbo')
+        const prompt = 'Whats in the image?'
         const image = {
           inlineData: {
             data: imageData,
