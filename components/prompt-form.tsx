@@ -92,6 +92,7 @@ export function PromptForm({
 
             reader.onloadend = async () => {
               const base64String = reader.result
+              console.log("baseString of file: ", base64String)
               const responseMessage = await describeImage(base64String)
               setMessages(currentMessages => [
                 ...currentMessages,

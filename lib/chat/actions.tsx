@@ -46,8 +46,9 @@ const genAI = new GoogleGenerativeAI(
 
 async function describeImage(imageBase64: string) {
   'use server'
-
+  console.log("imageBase early: ", imageBase64)
   await rateLimit()
+
 
   const aiState = getMutableAIState()
   const spinnerStream = createStreamableUI(null)
@@ -55,9 +56,7 @@ async function describeImage(imageBase64: string) {
   const uiStream = createStreamableUI()
 
   uiStream.update(
-    <BotCard>
-      <Video isLoading />
-    </BotCard>
+    <div>loading...</div>
   )
   ;(async () => {
     try {
@@ -85,7 +84,7 @@ async function describeImage(imageBase64: string) {
       `
       } else {
         const imageData = imageBase64.split(',')[1]
-        console.log(imageData)
+        console.log("imageData in actions:", imageData)
 
         const model = openai.chat('gpt-4-turbo')
         const prompt = 'Whats in the image?'
