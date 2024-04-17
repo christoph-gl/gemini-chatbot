@@ -61,6 +61,7 @@ export default async function ChatPage({ params }: ChatPageProps) {
         initialMessages={chat.messages}
         missingKeys={missingKeys}
       />
+      <div>Test2</div>
     </AI>
   )
 }
